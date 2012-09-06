@@ -1,2 +1,4 @@
-
-vendor/.gitignore
+vendor/*
+app/cache/*
+app/logs/*
+app/config/parameters.ini

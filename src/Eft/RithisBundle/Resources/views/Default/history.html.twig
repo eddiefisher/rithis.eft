@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+{% block title%}Rithis - History{% endblock %}
+{% block body %}
+  <h3>History</h3>
+  {% if messages %}
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Message to</th>
+        <th>Message subject</th>
+        <th>Message content</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for message in messages %}
+      <tr>
+        <td>{{ message.getId }}</td>
+        <td>{{ message.getMailTo }}</td>
+        <td>{{ message.getMailSubject }}</td>
+        <td>{{ message.getMailContent|markdown }}</td>
+        <td>{{ message.getCreatedAt|date }}</td>
+      </tr>
+    {% endfor %}
+      
+    </tbody>
+  </table>
+  {% else %}
+  <p>No message found</p>
+  {% endif %}
+{% endblock %}

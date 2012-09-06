@@ -183,7 +183,7 @@ class Schema extends AbstractAsset
      */
     public function createTable($tableName)
     {
-        $table = new Table($tableName);
+        $table = new Table($tableName,array(),array(),array(),0,array('charset'=>'utf8','collate'=>'utf8_general_ci'));
         $this->_addTable($table);
         return $table;
     }

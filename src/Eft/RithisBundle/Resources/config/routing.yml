@@ -1,0 +1,25 @@
+EftRithisBundle_homepage:
+    pattern:  /
+    defaults: { _controller: EftRithisBundle:Default:index }
+
+EftRithisBundle_about:
+    pattern:  /about
+    defaults: { _controller: EftRithisBundle:Default:about }
+
+EftRithisBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: EftRithisBundle:Default:contact }
+
+EftRithisBundle_form:
+    pattern:  /form
+    defaults: { _controller: EftRithisBundle:Default:form }
+
+EftRithisBundle_history:
+    pattern:  /history
+    defaults: { _controller: EftRithisBundle:Default:history }
+
+EftRithisBundle_success:
+    pattern:  /success/{id}
+    defaults: { _controller: EftRithisBundle:Default:success }
+    requirements:
+      id: \d+

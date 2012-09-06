@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block title%}Rithis - Contact{% endblock %}
+
+{% block body %}
+
+{% set about="
+### Contact
+##### Обо мне:
+Фрилансер со стажем около 3х лет. С Symfony 1.4.* работал 2 года.
+В основном создавал или расширял админки и в редких случаях фронтенд сайта.
+
+Также есть опыт работы с разными CMS:
++ Joomla+Virtuemart (разработка магазинов и сайтов визиток)
++ Drupal (написание дополнений)
++ WordPress (написание сайтов визиток, блогов)
+
+Помимо программирования иногда занимаюсь версткой, но не кросбраузерностью верстки.
+
+##### Контакты
++ **Skype:** eddi.fisher
++ **email:** eddifisher@bk.ru
++ **ICQ:** 492222017
++ **jabber:** eddi.fisher@ya.ru
++ **Blog:** eddifisher.wordpress.org
+" %}
+{{ about|markdown }}
+
+{% endblock %}

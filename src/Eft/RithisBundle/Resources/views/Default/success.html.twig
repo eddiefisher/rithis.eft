@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+{% block title%}Rithis - Success{% endblock %}
+{% block body %}
+  <h3>Sending <small>{{ message.getCreatedAt|date }}</small></h3>
+  <dl class="dl-horizontal">
+    <dt>Кому:</dt>
+    <dd>{{ message.getMailTo }}</dd>
+    <dt>Тема:</dt>
+    <dd>{{ message.getMailSubject }}</dd>
+    <dt>Сообщение:</dt>
+    <dd>{{ message.getMailContent|markdown }}</dd>
+  </dl>
+  <a href="{{ url('EftRithisBundle_form') }}" class="btn btn-small btn-primary" type="button">Send new message</a>
+  <a href="{{ url('EftRithisBundle_homepage') }}" class="btn btn-small btn-primary" type="button">Home page</a>
+{% endblock %}                 

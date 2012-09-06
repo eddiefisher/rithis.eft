@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+{% block title%}Rithis - Send message{% endblock %}
+{% form_theme form _self %}
+
+{% block field_errors %}
+{% if errors %}
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Warning!</strong>
+  {% for error in errors %}
+    {{ error.messageTemplate|trans(error.messageParameters, 'validators') }}
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block body %}
+  <form action="{{ path('EftRithisBundle_form') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+    <div>
+      {{ form_label(form.mail_to, 'Кому:') }}
+      {{ form_errors(form.mail_to) }}
+      {{ form_widget(form.mail_to) }}
+    </div>
+    <div>
+      {{ form_label(form.mail_subject, 'Тема:') }}
+      {{ form_errors(form.mail_subject) }}
+      {{ form_widget(form.mail_subject) }}
+    </div>
+    <div>
+      {{ form_label(form.mail_content, 'Сообщение:') }}
+      {{ form_errors(form.mail_content) }}
+      {{ form_widget(form.mail_content) }}
+    </div>
+
+    {{ form_rest(form) }}
+    <input type="submit" value="Send message" class="btn btn-small btn-primary"/>
+  </form>
+{% endblock %}

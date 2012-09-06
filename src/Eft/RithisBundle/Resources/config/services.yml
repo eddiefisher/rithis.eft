@@ -1,0 +1,15 @@
+parameters:
+#    eft_rithis.example.class: Eft\RithisBundle\Example
+
+services:
+#    eft_rithis.example:
+#        class: %eft_rithis.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    request:
+        class: Symfony\Component\HttpFoundation\Request
+    eft.twig.extension:
+        class: Eft\RithisBundle\Twig\Extension\GetActionExtension
+        arguments:  [@request]
+        tags:
+            - { name: 'twig.extension' }
