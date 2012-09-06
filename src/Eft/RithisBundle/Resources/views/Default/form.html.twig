@@ -20,20 +20,46 @@
     <div>
       {{ form_label(form.mail_to, 'Кому:') }}
       {{ form_errors(form.mail_to) }}
-      {{ form_widget(form.mail_to) }}
+      {{ form_widget(form.mail_to, { 'attr': {'class': 'input-xlarge', 'placeholder': 'john.doe@mail.him'} }) }}
     </div>
     <div>
       {{ form_label(form.mail_subject, 'Тема:') }}
       {{ form_errors(form.mail_subject) }}
-      {{ form_widget(form.mail_subject) }}
+      {{ form_widget(form.mail_subject, { 'attr': {'class': 'input-xlarge', 'placeholder': 'Leter for you my friend'} }) }}
     </div>
-    <div>
-      {{ form_label(form.mail_content, 'Сообщение:') }}
+    <div class="mkdform">
+      <p>Для написания текста можно использовать разметку <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a></p>
       {{ form_errors(form.mail_content) }}
-      {{ form_widget(form.mail_content) }}
+      <table class="table no-border">
+        <tr>
+          <td>{{ form_label(form.mail_content, 'Сообщение:') }}</td>
+          <td>Предпросмотр:</td>
+        </tr>
+        <tr>
+          <td width="50%">{{ form_widget(form.mail_content, { 'attr': {'class': 'mkd mkdform'} }) }}</td>
+          <td width="50%"><div id="preview" class="mkd"></div></td>
+        </tr>
+      </table>
     </div>
 
     {{ form_rest(form) }}
     <input type="submit" value="Send message" class="btn btn-small btn-primary"/>
   </form>
+{% endblock %}
+
+{% block jsscript %}
+  <script src="{{ asset('bundles/eftrithis/js/Markdown.Converter.js') }}" type="text/javascript" charset="utf-8"></script>
+  <script src="{{ asset('bundles/eftrithis/js/Markdown.Sanitizer.js') }}" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $(function() {
+        var $textarea = $('textarea.mkdform'),
+            $preview = $('#preview'),
+            convert = new Markdown.getSanitizingConverter().makeHtml;
+        $textarea.keyup(function() {
+          $preview.html(convert($textarea.val()));
+        }).trigger('keyup');
+      });
+    });
+  </script>
 {% endblock %}

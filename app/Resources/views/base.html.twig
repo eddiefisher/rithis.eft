@@ -5,6 +5,7 @@
   <title>{% block title %}Rithis - test issue{% endblock %}</title>
   {% block stylesheets %}{% endblock %}
   <link href="{{ asset('bundles/eftrithis/css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ asset('bundles/eftrithis/css/style.css') }}" rel="stylesheet">
   <style>
     body {padding-top: 60px;}
   </style>
@@ -46,5 +47,6 @@
   </div>
   <script src="{{ asset('bundles/eftrithis/js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
   <script src="{{ asset('bundles/eftrithis/js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
+  {% block jsscript %}{% endblock %}
 </body>
 </html>

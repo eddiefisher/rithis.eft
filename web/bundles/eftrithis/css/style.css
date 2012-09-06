@@ -1,0 +1,30 @@
+.mkd {
+	height: 100%;
+	width: 460px;
+}
+#preview {
+	background-color: #eeeeee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	padding: 5px;
+	margin-bottom: 0px;
+	min-height: 400px;
+	overflow: scroll;
+	word-wrap: break-word;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+.table.no-border th,
+.table.no-border td {
+  border-top: none;
+  padding: 3px;
+}
+.modal {
+	width: 800px;
+	margin: -270px 0 0 -400px;
+}
+.modal-body {
+max-height: 500px;
+}

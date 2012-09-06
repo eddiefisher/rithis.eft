@@ -17,9 +17,20 @@
     {% for message in messages %}
       <tr>
         <td>{{ message.getId }}</td>
-        <td>{{ message.getMailTo }}</td>
+        <td>{{ message.getMailTo|trim('@') }}</td>
         <td>{{ message.getMailSubject }}</td>
-        <td>{{ message.getMailContent|markdown }}</td>
+        <td>
+          <a href="#modal_{{ message.getId }}" role="button" class="btn btn-mini" data-toggle="modal">Show content</a>
+          <div class="modal hide fade" id="modal_{{ message.getId }}" tabindex="-1" role="dialog" aria-labelledby="modal_{{ message.getId }}_Label" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="modal_{{ message.getId }}_Label">Message to {{ message.getMailTo|trim('@') }}</h3>
+            </div>
+            <div class="modal-body">
+              {{ message.getMailContent|markdown }}
+            </div>
+          </div>
+        </td>
         <td>{{ message.getCreatedAt|date }}</td>
       </tr>
     {% endfor %}
